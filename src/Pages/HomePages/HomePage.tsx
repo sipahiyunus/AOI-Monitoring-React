@@ -16,7 +16,7 @@ export default function HomePage() {
         data={iblData}
       />
       <Section
-        imageUrl="/viscom.svg"
+        imageUrl="/svg/viscom.svg"
         imgW={21}
         imgH={10}
         blink={error}

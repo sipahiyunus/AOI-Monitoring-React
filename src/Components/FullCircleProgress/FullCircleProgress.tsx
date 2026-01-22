@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-interface HalfCircleProgressProps {
+interface FullCircleProgressProps {
   producedQuantity: number;
   totalQuantity: number;
   size?: number | string;
@@ -14,7 +14,7 @@ export default function FullCircleProgress({
   side,
   totalQuantity,
   producedQuantity,
-}: HalfCircleProgressProps) {
+}: FullCircleProgressProps) {
   const [computedSizeNumber, setComputedSizeNumber] = useState(0);
 
   /* ---------------- calculate progress ---------------- */
@@ -41,17 +41,17 @@ export default function FullCircleProgress({
       newSize = size;
     }
 
-    newSize = Math.max(100, Math.min(newSize, 400)); // min-max
+    newSize = Math.max(100, Math.min(newSize, 400));
     setComputedSizeNumber(newSize);
   }, [size]);
 
   useEffect(() => {
-    calculateSize(); // first render
-    window.addEventListener("resize", calculateSize); // resize
+    calculateSize();
+    window.addEventListener("resize", calculateSize);
     return () => window.removeEventListener("resize", calculateSize);
   }, [calculateSize]);
 
-  /* ---------------- calculate geometry ---------------- */
+  /* ---------------- geometry ---------------- */
 
   const radius = Math.max(1, (computedSizeNumber - strokeWidth) / 2);
   const circumference = 2 * Math.PI * radius;
@@ -59,10 +59,6 @@ export default function FullCircleProgress({
 
   const cx = computedSizeNumber / 2;
   const cy = computedSizeNumber / 2;
-
-  const angle = 2 * Math.PI * (progress / 100);
-  const indicatorX = cx + radius * Math.cos(angle - Math.PI / 2);
-  const indicatorY = cy + radius * Math.sin(angle - Math.PI / 2);
 
   return (
     <div
@@ -72,6 +68,7 @@ export default function FullCircleProgress({
         height: computedSizeNumber,
       }}
     >
+      {/* SIDE LABEL */}
       <span
         className="absolute text-white font-bold underline"
         style={{
@@ -115,23 +112,28 @@ export default function FullCircleProgress({
           transform={`rotate(-90 ${cx} ${cy})`}
         />
 
-        {/* Indicator */}
+        {/* Indicator — FIXED */}
         {progress > 0 && (
           <circle
-            cx={indicatorX}
-            cy={indicatorY}
+            cx={cx}
+            cy={cy - radius}
             r={strokeWidth * 1.6}
             fill="#4A6CFF"
-            className="transition-all duration-500"
+            style={{
+              transformOrigin: `${cx}px ${cy}px`,
+              transform: `rotate(${progress * 3.6}deg)`,
+              transition: "transform 0.5s ease",
+            }}
           />
         )}
+
+        {/* Inner soft circle */}
         <circle
           cx={cx}
           cy={cy}
           r={radius * 0.8}
           fill="#FFFFFF"
           opacity={0.15}
-          className="absolute"
         />
       </svg>
 

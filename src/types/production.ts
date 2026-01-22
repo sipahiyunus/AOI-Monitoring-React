@@ -17,7 +17,7 @@ export const fujiData: ProductionData = {
   productName: "MM5_16E_A_Vin_1_Degson",
   quantity: "6",
   topQuantity: "0",
-  BottomQuantity: "5",
+  BottomQuantity: "4",
   category: "T1B1",
   side: "TOP",
 };
@@ -28,7 +28,7 @@ export const iblData: ProductionData = {
   productName: "safelog5_av_LED_o_1_3c_5V_1ch",
   quantity: "228",
   topQuantity: "0",
-  BottomQuantity: "40",
+  BottomQuantity: "100",
   category: "T1B1",
   side: "BOTTOM",
 };

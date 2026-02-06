@@ -1,15 +1,5 @@
-import type { ProductionData } from "../../types/production";
-import FullCircleProgress from "../FullCircleProgress/FullCircleProgress";
-import ViscomScanError from "../Viscom/ViscomScanError";
-
-interface CardProps {
-  imageUrl: string;
-  imgW?: number;
-  imgH?: number;
-  setWarningText?: boolean;
-  blink?: boolean;
-  data: ProductionData;
-}
+import { FullCircleProgress, ViscomScanError } from "../../index";
+import type { SectionProps } from "./Section.types";
 
 /*3.906vw */
 export default function Section({
@@ -19,7 +9,7 @@ export default function Section({
   setWarningText,
   blink,
   data,
-}: CardProps) {
+}: SectionProps) {
   return (
     <div
       className={` ${

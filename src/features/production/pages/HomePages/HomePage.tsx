@@ -1,7 +1,11 @@
 import { useState } from "react";
-import Section from "../../Components/Section/Section";
-import ViscomScanError from "../../Components/Viscom/ViscomScanError";
-import { fujiData, iblData, viscomData } from "../../types/production";
+import {
+  Section,
+  ViscomScanError,
+  fujiData,
+  iblData,
+  viscomData,
+} from "@/features/production";
 
 export default function HomePage() {
   const [error, setError] = useState(false);

@@ -1,12 +1,7 @@
-
-import HomePage from "./Pages/HomePages/HomePage";
+import { HomePage } from "@/features/production";
 
 function App() {
-  return (
-    <div >
-      <HomePage />
-    </div>
-  );
+  return <HomePage />;
 }
 
 export default App;

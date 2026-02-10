@@ -1,4 +1,4 @@
-import type { ProductionData } from "@/features/production";
+import type { AuftragInformation } from "@/features/production";
 
 export interface SectionProps {
   imageUrl: string;
@@ -6,5 +6,5 @@ export interface SectionProps {
   imgH?: number;
   setWarningText?: boolean;
   blink?: boolean;
-  data: ProductionData;
+  data: AuftragInformation;
 }

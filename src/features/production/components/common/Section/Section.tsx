@@ -32,7 +32,7 @@ export default function Section({
 
           <div className="mt-2 flex flex-col items-center g">
             <div className="text-[3vw] font-semibold text-[#C8C6FF]">
-              REV <span className="text-white ml-2">{data.revNumber}</span>
+              REV <span className="text-white ml-2">{data.bgRevision}</span>
             </div>
             <div className="text-[3vw] font-semibold text-[#C8C6FF]">
               PA:<span className="text-white ml-2">{data.paNumber}</span>
@@ -45,7 +45,7 @@ export default function Section({
 
       <div className="absolute top-[41.5vh]">
         <h1 className="font-sans font-semibold text-[2vw] text-white  mt-[1.9vh] leading-none truncate w-[28vw] h-[2.4vw] text-center ">
-          {data.productName}
+          {data.bgName}
         </h1>
 
         <div className="flex flex-row justify-between mt-2 w-[28vw] px-1.5 ">
@@ -53,7 +53,7 @@ export default function Section({
             Üretim Adeti
           </h1>
           <h1 className="font-sans font-semibold text-[2vw] text-white  mt-[1.9vh] leading-none  ">
-            {data.quantity}
+            {data.totalQuantity}
           </h1>
         </div>
 
@@ -70,22 +70,22 @@ export default function Section({
             İlk Taraf
           </h1>
           <h1 className="font-sans font-semibold text-[2vw] text-white  mt-[1.9vh] leading-none ">
-            {data.side}
+            {data.firstSide}
           </h1>
         </div>
       </div>
       <div className="w-[29.06vw] h-[24vh] bg-[#E4CCFB]/20  rounded-[calc(30.2vw*0.08591)] mt-[4.2vh] pt-4 flex flex-row justify-around absolute bottom-[1.5vh] ">
         <FullCircleProgress
-          producedQuantity={Number(data.BottomQuantity)}
+          producedQuantity={Number(data.bottomQuantity)}
           size={"17vh"}
           side="BOTTOM"
-          totalQuantity={Number(data.quantity)}
+          totalQuantity={Number(data.totalQuantity)}
         />
         <FullCircleProgress
           producedQuantity={Number(data.topQuantity)}
           size={"17vh"}
           side="TOP"
-          totalQuantity={Number(data.quantity)}
+          totalQuantity={Number(data.totalQuantity)}
         />
       </div>
       {setWarningText && <ViscomScanError />}
@@ -93,18 +93,3 @@ export default function Section({
   );
 }
 
-/* 
-<h1
-        className="font-sans font-semibold text-[3.6vw] text-white mt-[1.85vh] leading-none"
-        style={{}}
-      >
-        BG:<span className="text-white">1127008</span>
-      </h1>
-      <h1 className="font-sans font-semibold text-[3.6vw] text-white   mt-[1.85vh] leading-none">
-        REV 2.0
-      </h1>
-      <h1 className="font-sans font-semibold text-[3.6vw] text-white  mt-[1.85vh] leading-none">
-        PA:184987
-      </h1>
-      
-      */

@@ -35,32 +35,4 @@ export default function HomePage() {
   );
 }
 
-/* Blink kısmı timer ıle yapılacak olursa yanıp sonme asagıdakını kullan */
 
-/*
-  const [isBlinking, setIsBlinking] = useState(false);
-  const [warningText, setWarningText] = useState(false);
-  const timerRef = useRef<number | null>(null);
- const errorBlink = () => {
-    if (error) {
-      if (timerRef.current !== null) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      setError(false);
-      setIsBlinking(false);
-      setWarningText(false);
-      return;
-    }
-    timerRef.current = window.setInterval(() => {
-      setIsBlinking((prev) => !prev);
-      setWarningText(true);
-    }, 500);
-
-    setError(true);
-  };
-  useEffect(() => {
-    return () => {
-      if (timerRef.current !== null) clearInterval(timerRef.current);
-    };
-  }, []);*/
